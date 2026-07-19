@@ -1,0 +1,62 @@
+name: Monitor
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+# One run at a time so history commits never race.
+concurrency:
+  group: monitor
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  check-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run govwatch
+        # Upstream outages are data, not failures — `|| true` keeps the run
+        # green; record.mjs fails the job only if no results were produced.
+        env:
+          DATA_GOV_API_KEY: ${{ secrets.DATA_GOV_API_KEY }}
+          CONGRESS_API_KEY: ${{ secrets.CONGRESS_API_KEY }}
+          FEC_API_KEY: ${{ secrets.FEC_API_KEY }}
+          GOVINFO_API_KEY: ${{ secrets.GOVINFO_API_KEY }}
+          OPENSTATES_API_KEY: ${{ secrets.OPENSTATES_API_KEY }}
+          CENSUS_API_KEY: ${{ secrets.CENSUS_API_KEY }}
+          NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
+          ACLED_API_KEY: ${{ secrets.ACLED_API_KEY }}
+          ACLED_EMAIL: ${{ secrets.ACLED_EMAIL }}
+          QUIVER_API_KEY: ${{ secrets.QUIVER_API_KEY }}
+        run: npx -y @capitoltrace/govwatch@latest check --json > raw.json || true
+
+      - name: Record history
+        run: node scripts/record.mjs raw.json
+
+      - name: Commit history
+        run: |
+          git config user.name "govwatch-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data
+          git commit -m "record $(date -u +%FT%TZ)" || echo "nothing to commit"
+          git pull --rebase origin main
+          git push
+
+      - name: Generate site
+        run: node scripts/generate.mjs
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - id: deployment
+        uses: actions/deploy-pages@v4
