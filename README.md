@@ -1,7 +1,7 @@
 <h1 align="center">🔍 govwatch-status</h1>
 
 <p align="center">
-  <strong><a href="https://capitoltrace.github.io/govwatch-status/">capitoltrace.github.io/govwatch-status</a></strong><br/>
+  <strong><a href="https://status.capitoltrace.com/">status.capitoltrace.com</a></strong><br/>
   <em>Live status page for 17 U.S. government APIs — is Congress.gov down? Now you know.</em>
 </p>
 
@@ -24,8 +24,8 @@ No servers, no database, no cost. The repo *is* the database.
 
 | URL | Contents |
 |:--|:--|
-| [`/status.json`](https://capitoltrace.github.io/govwatch-status/status.json) | Latest full check results |
-| [`/history-30d.json`](https://capitoltrace.github.io/govwatch-status/history-30d.json) | 30-day uptime % and response-time aggregates per service |
+| [`/status.json`](https://status.capitoltrace.com/status.json) | Latest full check results |
+| [`/history-30d.json`](https://status.capitoltrace.com/history-30d.json) | 30-day uptime % and response-time aggregates per service |
 
 ## API keys
 

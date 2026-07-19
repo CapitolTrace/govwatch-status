@@ -14,7 +14,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-const SITE_URL = 'https://capitoltrace.github.io/govwatch-status/';
+const SITE_URL = 'https://status.capitoltrace.com/';
 const TICKS = 48; // ~24h of 30-minute checks
 
 // SEO-bearing copy: name the API and its domain so outage queries land here.
