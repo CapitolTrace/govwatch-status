@@ -23,6 +23,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Pinned (2026-08-08, capitoltrace automation review): @latest meant a bad
+      # npm publish reached the public status page within 30 minutes. Bump the
+      # pin deliberately when a new govwatch version ships.
       - name: Run govwatch
         # Upstream outages are data, not failures — `|| true` keeps the run
         # green; record.mjs fails the job only if no results were produced.
@@ -37,7 +40,7 @@ jobs:
           ACLED_API_KEY: ${{ secrets.ACLED_API_KEY }}
           ACLED_EMAIL: ${{ secrets.ACLED_EMAIL }}
           QUIVER_API_KEY: ${{ secrets.QUIVER_API_KEY }}
-        run: npx -y @capitoltrace/govwatch@latest check --json > raw.json || true
+        run: npx -y @capitoltrace/govwatch@0.1.0 check --json > raw.json || true
 
       - name: Record history
         run: node scripts/record.mjs raw.json
