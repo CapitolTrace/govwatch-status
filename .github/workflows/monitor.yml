@@ -2,7 +2,12 @@ name: Monitor
 
 on:
   schedule:
-    - cron: '*/30 * * * *'
+    # Hourly at :17 (was */30). At 30-min cadence a queued run that can't get
+    # a runner is preempted by its successor in the `monitor` concurrency
+    # group before it ever starts — 2026-08-07..09 that starved the monitor
+    # for 38h straight (#1217 in capitoltrace). Off-peak minute dodges the
+    # top-of-hour runner rush.
+    - cron: '17 * * * *'
   workflow_dispatch:
 
 # One run at a time so history commits never race.
@@ -17,6 +22,9 @@ permissions:
 jobs:
   check-and-deploy:
     runs-on: ubuntu-latest
+    # A wedged check (2026-08-06: 10m34s hang) must fail loudly, not hold the
+    # concurrency group hostage into the next scheduled fire.
+    timeout-minutes: 20
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
