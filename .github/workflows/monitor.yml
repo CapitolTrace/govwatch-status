@@ -10,9 +10,15 @@ on:
     - cron: '17 * * * *'
   workflow_dispatch:
 
-# One run at a time so history commits never race.
+# One run at a time so history commits never race. cancel-in-progress evicts
+# a wedged predecessor: a run GitHub queues but never starts holds this group
+# forever (2026-08-09..26 one did, for 17 days — every hourly fire queued
+# behind it, then died cancelled; the page froze while ~390 cancellations
+# spammed notifications). Eviction can't hurt a healthy run: the 20-minute
+# job timeout means no started run is ever still alive at the next fire.
 concurrency:
   group: monitor
+  cancel-in-progress: true
 
 permissions:
   contents: write
