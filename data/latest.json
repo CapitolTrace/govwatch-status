@@ -1,71 +1,71 @@
 {
-  "updatedAt": "2026-08-09T15:48:41.500Z",
+  "updatedAt": "2026-08-26T09:35:32.972Z",
   "results": [
     {
       "service": "congress",
       "label": "Congress.gov API",
       "category": "congressional",
-      "checkedAt": "2026-08-09T15:48:27.811Z",
-      "status": "healthy",
-      "statusCode": 200,
-      "responseTime": 442,
-      "failures": []
-    },
-    {
-      "service": "fec",
-      "label": "FEC OpenFEC",
-      "category": "congressional",
-      "checkedAt": "2026-08-09T15:48:27.873Z",
-      "status": "healthy",
-      "statusCode": 200,
-      "responseTime": 480,
-      "failures": []
-    },
-    {
-      "service": "senate-lda",
-      "label": "Senate LDA",
-      "category": "congressional",
-      "checkedAt": "2026-08-09T15:48:27.874Z",
-      "status": "healthy",
-      "statusCode": 200,
-      "responseTime": 261,
-      "failures": []
-    },
-    {
-      "service": "govinfo",
-      "label": "GovInfo API",
-      "category": "congressional",
-      "checkedAt": "2026-08-09T15:48:27.875Z",
-      "status": "healthy",
-      "statusCode": 200,
-      "responseTime": 2828,
-      "failures": []
-    },
-    {
-      "service": "federal-register",
-      "label": "Federal Register",
-      "category": "federal",
-      "checkedAt": "2026-08-09T15:48:27.876Z",
+      "checkedAt": "2026-08-26T09:35:22.349Z",
       "status": "healthy",
       "statusCode": 200,
       "responseTime": 184,
       "failures": []
     },
     {
+      "service": "fec",
+      "label": "FEC OpenFEC",
+      "category": "congressional",
+      "checkedAt": "2026-08-26T09:35:22.388Z",
+      "status": "healthy",
+      "statusCode": 200,
+      "responseTime": 142,
+      "failures": []
+    },
+    {
+      "service": "senate-lda",
+      "label": "Senate LDA",
+      "category": "congressional",
+      "checkedAt": "2026-08-26T09:35:22.390Z",
+      "status": "healthy",
+      "statusCode": 200,
+      "responseTime": 299,
+      "failures": []
+    },
+    {
+      "service": "govinfo",
+      "label": "GovInfo API",
+      "category": "congressional",
+      "checkedAt": "2026-08-26T09:35:22.391Z",
+      "status": "healthy",
+      "statusCode": 200,
+      "responseTime": 2127,
+      "failures": []
+    },
+    {
+      "service": "federal-register",
+      "label": "Federal Register",
+      "category": "federal",
+      "checkedAt": "2026-08-26T09:35:22.392Z",
+      "status": "healthy",
+      "statusCode": 200,
+      "responseTime": 264,
+      "failures": []
+    },
+    {
       "service": "usaspending",
       "label": "USAspending.gov",
       "category": "federal",
-      "checkedAt": "2026-08-09T15:48:27.877Z",
+      "checkedAt": "2026-08-26T09:35:22.393Z",
       "status": "healthy",
       "statusCode": 200,
-      "responseTime": 608,
+      "responseTime": 244,
       "failures": []
     },
     {
       "service": "openstates",
       "label": "Open States v3",
       "category": "federal",
-      "checkedAt": "2026-08-09T15:48:28.061Z",
+      "checkedAt": "2026-08-26T09:35:22.531Z",
       "status": "skipped",
       "statusCode": null,
       "responseTime": null,
@@ -76,7 +76,7 @@
       "service": "census",
       "label": "Census Bureau ACS",
       "category": "federal",
-      "checkedAt": "2026-08-09T15:48:28.061Z",
+      "checkedAt": "2026-08-26T09:35:22.531Z",
       "status": "skipped",
       "statusCode": null,
       "responseTime": null,
@@ -87,72 +87,69 @@
       "service": "bls",
       "label": "BLS Public Data API",
       "category": "federal",
-      "checkedAt": "2026-08-09T15:48:28.061Z",
-      "status": "unhealthy",
-      "statusCode": 503,
-      "responseTime": 519,
-      "failures": [
-        "HTTP 503 (expected 200)",
-        "response body is not valid JSON"
-      ]
+      "checkedAt": "2026-08-26T09:35:22.531Z",
+      "status": "healthy",
+      "statusCode": 200,
+      "responseTime": 327,
+      "failures": []
     },
     {
       "service": "cisa-kev",
       "label": "CISA KEV Catalog",
       "category": "natsec",
-      "checkedAt": "2026-08-09T15:48:28.135Z",
+      "checkedAt": "2026-08-26T09:35:22.534Z",
       "status": "healthy",
       "statusCode": 200,
-      "responseTime": 179,
+      "responseTime": 97,
       "failures": []
     },
     {
       "service": "nvd",
       "label": "NVD (NIST)",
       "category": "natsec",
-      "checkedAt": "2026-08-09T15:48:28.254Z",
+      "checkedAt": "2026-08-26T09:35:22.635Z",
       "status": "healthy",
       "statusCode": 200,
-      "responseTime": 48,
+      "responseTime": 168,
       "failures": []
     },
     {
       "service": "state-travel",
       "label": "State Dept Travel",
       "category": "natsec",
-      "checkedAt": "2026-08-09T15:48:28.302Z",
+      "checkedAt": "2026-08-26T09:35:22.638Z",
       "status": "healthy",
       "statusCode": 200,
-      "responseTime": 113,
+      "responseTime": 151,
       "failures": []
     },
     {
       "service": "gdelt",
       "label": "GDELT Project",
       "category": "natsec",
-      "checkedAt": "2026-08-09T15:48:28.318Z",
-      "status": "degraded",
-      "statusCode": 200,
-      "responseTime": 13063,
+      "checkedAt": "2026-08-26T09:35:22.656Z",
+      "status": "unhealthy",
+      "statusCode": null,
+      "responseTime": 10227,
       "failures": [
-        "slow: 13,063ms exceeds 10,000ms budget"
+        "request failed: fetch failed"
       ]
     },
     {
       "service": "celestrak",
       "label": "CelesTrak NORAD",
       "category": "natsec",
-      "checkedAt": "2026-08-09T15:48:28.353Z",
+      "checkedAt": "2026-08-26T09:35:22.688Z",
       "status": "healthy",
       "statusCode": 200,
-      "responseTime": 345,
+      "responseTime": 4235,
       "failures": []
     },
     {
       "service": "acled",
       "label": "ACLED",
       "category": "natsec",
-      "checkedAt": "2026-08-09T15:48:28.415Z",
+      "checkedAt": "2026-08-26T09:35:22.788Z",
       "status": "skipped",
       "statusCode": null,
       "responseTime": null,
@@ -163,17 +160,17 @@
       "service": "sec-edgar",
       "label": "SEC EDGAR",
       "category": "financial",
-      "checkedAt": "2026-08-09T15:48:28.415Z",
+      "checkedAt": "2026-08-26T09:35:22.789Z",
       "status": "healthy",
       "statusCode": 200,
-      "responseTime": 62,
+      "responseTime": 82,
       "failures": []
     },
     {
       "service": "quiver",
       "label": "Quiver Quantitative",
       "category": "financial",
-      "checkedAt": "2026-08-09T15:48:28.478Z",
+      "checkedAt": "2026-08-26T09:35:22.803Z",
       "status": "skipped",
       "statusCode": null,
       "responseTime": null,
